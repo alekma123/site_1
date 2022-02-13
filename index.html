@@ -9,5 +9,18 @@
 </head>
 <body>
     <H2>test parsing</H2>
+    
+    <script>
+    const url = "https://yandex.ru/search/xml?user=alekma00&key=03.678115950:14f17e8aae46db1c2aeb8d07f2798414&query=yandex&l10n=ru&sortby=tm.order%3Dascending&filter=strict&groupby=attr%3D%22%22.mode%3Dflat.groups-on-page%3D10.docs-in-group%3D1";
+    let response = await fetch(url);
+
+    if (response.ok) { // если HTTP-статус в диапазоне 200-299
+    // получаем тело ответа (см. про этот метод ниже)
+    let json = await response.json();
+        console.log(json);
+    } else {
+    alert("Ошибка HTTP: " + response.status);
+    }
+    </script>
 </body>
 </html>
